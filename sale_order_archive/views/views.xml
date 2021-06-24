@@ -1,0 +1,46 @@
+<odoo>
+    <menuitem id="sale_order" name="Archived Orders" parent="sale.sale_order_menu"
+              action="sale_order_archive_list_action"/>
+
+
+    <record id="sale_order_archive_tree_view" model="ir.ui.view">
+        <field name="name">sale_order_archive.tree</field>
+        <field name="model">sale.order.archive</field>
+        <field name="arch" type="xml">
+            <tree string="Sale order archive">
+                <field name="name" string="Name"/>
+                <field name="order_create_date" string="Order create date"/>
+                <field name="customer" string="Customer" widget="many2one_tags"/>
+                <field name="sale_person" string="Sale person" widget="many2one_tags"/>
+                <field name="order_total_amount" string="Order total amount"/>
+                <field name="order_currency" string="Order Currency"/>
+                <field name="count_of_order_lines" string="Count of order lines"/>
+            </tree>
+        </field>
+    </record>
+    <record id="sale_order_archive_form_view" model="ir.ui.view">
+        <field name="name">sale_order_archive.form</field>
+        <field name="model">sale.order.archive</field>
+        <field name="arch" type="xml">
+            <form string="Sale order archive">
+                <sheet>
+                    <field name="name" string="Name"/>
+                    <field name="order_create_date" string="Order create date"/>
+                    <field name="customer" string="Customer" widget="many2one_tags"/>
+                    <field name="sale_person" string="Sale person" widget="many2one_tags"/>
+                    <field name="order_total_amount" string="Order total amount"/>
+                    <field name="order_currency" string="Currency"/>
+                    <field name="count_of_order_lines" string="Count of order lines"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="sale_order_archive_list_action">
+        <field name="name">sale_order_archive window</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sale.order.archive</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>
